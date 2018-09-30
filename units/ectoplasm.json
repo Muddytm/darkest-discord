@@ -1,0 +1,29 @@
+{
+  "name": "ectoplasm",
+  "hp":
+    {
+      "base": 8
+    },
+  "attack":
+    {
+      "base": 3,
+      "variance": 3
+    },
+  "speed":
+    {
+      "base": 4,
+      "variance": 2
+    },
+  "attacks":
+    {
+      "slime":
+      {
+        "effects": "none",
+        "damage":
+          {
+            "mod": 0,
+            "crit": 10
+          }
+      }
+    }
+}

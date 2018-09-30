@@ -1,0 +1,29 @@
+{
+  "name": "leper",
+  "hp":
+    {
+      "base": 20
+    },
+  "attack":
+    {
+      "base": 8,
+      "variance": 3
+    },
+  "speed":
+    {
+      "base": 3,
+      "variance": 3
+    },
+  "attacks":
+    {
+      "chop":
+      {
+        "effects": "none",
+        "damage":
+          {
+            "mod": 0,
+            "crit": 20
+          }
+      }
+    }
+}

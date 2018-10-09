@@ -1,3 +1,3 @@
 # darkest-discord
 
-A bot that simulates Darkest Discord, playable fully in Discord.
+A bot that simulates Darkest Dungeon, playable fully in Discord.

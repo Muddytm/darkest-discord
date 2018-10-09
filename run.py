@@ -20,8 +20,6 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    print ("parsin message")
-
     await client.process_commands(message)
 
 
@@ -30,8 +28,6 @@ async def register(ctx, stuff=""):
     """Register by DMing the bot with !register."""
     if not ctx.message.channel.is_private:
         return
-
-    print ("got in.")
 
     name = hf.clean(ctx.message.author.name)
     id = str(ctx.message.author.id)

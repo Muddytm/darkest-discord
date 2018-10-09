@@ -1,2 +1,3 @@
 # darkest-discord
-GRIEVOUS DISCORD GAMES...PALPABLE FUN
+
+A bot that simulates Darkest Discord, playable fully in Discord.

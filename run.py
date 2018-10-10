@@ -8,6 +8,7 @@ import functions as f
 import os
 
 main_channel = "testing"
+hero_max = 1
 
 TOKEN = config.app_token
 
@@ -35,7 +36,7 @@ async def register(ctx, stuff=""):
     for filename in os.listdir("data/players"):
         if id in filename:
             await client.send_message(ctx.message.author,
-                                      "You've already arrived in the hamlet.")
+                                      "You've already registered.")
             return
 
     with open("data/players/{}_{}.json".format(name, id), "w") as outfile:
@@ -43,7 +44,33 @@ async def register(ctx, stuff=""):
         json.dump(data, outfile)
 
     await client.send_message(ctx.message.author,
-                              "You've arrived in the hamlet...make yourself at home, such as it is.")
+                              "You've registered with Darkest Discord!")
+    await client.send_message(ctx.message.author,
+                              "Type `!newhero` to create a hero (maximum of 1).")
+
+
+@client.command(pass_context=True, no_pm=False)
+async def newhero(ctx, stuff=""):
+    """Begin hero creation process."""
+    if not ctx.message.channel.is_private:
+        return
+
+    name = hf.clean(ctx.message.author.name)
+    id = str(ctx.message.author.id)
+    data = hf.get_player(name, id)
+
+    classes = []
+    for filename in os.listdir("data/classes"):
+        if ".json" in filename:
+            classes.append(filename.replace(".json", "").capitalize())
+
+    if "setup" not in data:
+        data["setup"] = 1
+
+        await client.send_message(ctx.message.author,
+                                  ("A new hero arrives in the hamlet. Which class are they?"
+                                   "\nType `!newhero class`, replacing `class` with one of the following:"
+                                   "\n\n{}".format("\n- ".join(classes)))
 
 
 @client.command(pass_context=True)
